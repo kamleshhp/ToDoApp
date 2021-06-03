@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@page isELIgnored="false"%>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,28 +19,54 @@
 	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
 	crossorigin="anonymous">
 
-<title>Our ToDo App</title>
+<title><c:out value="${page }"></c:out></title>
 </head>
 <body>
 	<div class="container mt-3">
 
 		<h1 class="text-center">Welcome to TODO Manager</h1>
 
+
 		<div class="row mt-5">
 
 			<div class="col-md-2">
+
+				<div class="list-group">
+					<button type="button"
+						class="list-group-item list-group-item-action active">Menu</button>
+						
+						
+					<a href='<c:url value='/add'></c:url>'
+						class="list-group-item list-group-item-action" >Add TODO</a>
+						
 				
-				<ul class="list-group">
-					<li class="list-group-item active">Menu</li>
-					<li class="list-group-item">Add TODO</li>
-					<li class="list-group-item">View TODO</li>
-					<li class="list-group-item">Update TODO</li>
-					<li class="list-group-item">Delete TODO</li>
-				</ul>
+						
+					<a href='<c:url value='/home'></c:url>'
+						class="list-group-item list-group-item-action">View TODO</a>
+						
+					<a href='<c:url value='/delete'></c:url>'
+						class="list-group-item list-group-item-action">Delete TODO</a>
+						
+						
+					<a href='<c:url value='/update'></c:url>'
+						class="list-group-item list-group-item-action">Update TODO</a>
+					
+				</div>
 			</div>
 
 			<div class="col-md-10">
-				<h3 class="text-center">Content</h3>
+				<c:if test="${page=='home' }">
+
+					<h1 class="text-center">All TODOS</h1>
+
+
+				</c:if>
+
+				<c:if test="${page=='add' }">
+
+					<h1 class="text-center">Add TODO</h1>
+
+				</c:if>
 
 
 			</div>
