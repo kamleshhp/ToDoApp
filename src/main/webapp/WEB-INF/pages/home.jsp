@@ -21,16 +21,16 @@
 
 		<h1 class="text-center">Welcome to TODO Manager</h1>
 
-		<div class="row mt-4">
+		<div class="row mt-5">
 
 			<div class="col-md-2">
-				<h3 class="text-center">Options</h3>
+				
 				<ul class="list-group">
-					<li class="list-group-item active">Cras justo odio</li>
-					<li class="list-group-item">Dapibus ac facilisis in</li>
-					<li class="list-group-item">Morbi leo risus</li>
-					<li class="list-group-item">Porta ac consectetur ac</li>
-					<li class="list-group-item">Vestibulum at eros</li>
+					<li class="list-group-item active">Menu</li>
+					<li class="list-group-item">Add TODO</li>
+					<li class="list-group-item">View TODO</li>
+					<li class="list-group-item">Update TODO</li>
+					<li class="list-group-item">Delete TODO</li>
 				</ul>
 			</div>
 
