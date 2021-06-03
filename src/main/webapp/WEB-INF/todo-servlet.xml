@@ -19,7 +19,7 @@
 
     <mvc:annotation-driven enable-matrix-variables="true"/>
     
-    <bean id="viewresolver" class="org.springframework.web.servlet.ViewResolver">
+    <bean id="ViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
     
     <property name="prefix" value="/WEB-INF/pages/"></property>
     
