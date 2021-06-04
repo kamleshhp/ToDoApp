@@ -16,6 +16,14 @@ public class Todo {
 		this.todoContent = todoContent;
 		this.todoDate = todoDate;
 	}
+	
+	
+
+	public Todo() {
+		
+	}
+
+
 
 	public String getTodoTitle() {
 		return todoTitle;
@@ -45,6 +53,8 @@ public class Todo {
 	public String toString() {
 		return "Todo [todoTitle=" + todoTitle + ", todoContent=" + todoContent + ", todoDate=" + todoDate + "]";
 	}
+	
+	
 	
 	
 	

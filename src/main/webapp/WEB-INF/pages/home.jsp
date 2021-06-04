@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <%@page isELIgnored="false"%>
@@ -34,23 +37,17 @@
 				<div class="list-group">
 					<button type="button"
 						class="list-group-item list-group-item-action active">Menu</button>
-						
-						
+
+
 					<a href='<c:url value='/add'></c:url>'
-						class="list-group-item list-group-item-action" >Add TODO</a>
-						
-				
-						
-					<a href='<c:url value='/home'></c:url>'
-						class="list-group-item list-group-item-action">View TODO</a>
-						
-					<a href='<c:url value='/delete'></c:url>'
-						class="list-group-item list-group-item-action">Delete TODO</a>
-						
-						
-					<a href='<c:url value='/update'></c:url>'
+						class="list-group-item list-group-item-action">Add TODO</a> <a
+						href='<c:url value='/home'></c:url>'
+						class="list-group-item list-group-item-action">View TODO</a> <a
+						href='<c:url value='/delete'></c:url>'
+						class="list-group-item list-group-item-action">Delete TODO</a> <a
+						href='<c:url value='/update'></c:url>'
 						class="list-group-item list-group-item-action">Update TODO</a>
-					
+
 				</div>
 			</div>
 
@@ -65,6 +62,42 @@
 				<c:if test="${page=='add' }">
 
 					<h1 class="text-center">Add TODO</h1>
+					
+					<br>
+
+					<form:form action="saveTodo" method="post" modelAttribute="todo">
+
+						<div class="form-group">
+
+							<form:input path="todoTitle" cssClass="form-control"
+								placeholder="Enter Todo title" />
+
+
+
+
+						</div>
+
+						<div class="form-group">
+
+							<form:textarea path="todoContent" cssClass="form-control"
+								placeholder="Enter your todo Content" cssStyle="height:300px"/>
+
+						</div>
+						
+						<div class="container text-center">
+						<button class="btn btn-outline-success">Add Todo</button>
+						
+						</div>
+
+
+
+
+
+					</form:form>
+
+
+
+
 
 				</c:if>
 
