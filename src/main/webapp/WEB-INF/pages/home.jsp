@@ -30,6 +30,19 @@
 		<h1 class="text-center">Welcome to TODO Manager</h1>
 
 
+		<c:if test="${not empty msg }">
+			<div class="alert alert-success">
+
+				<b>${msg }</b>
+
+
+			</div>
+
+
+
+		</c:if>
+
+
 		<div class="row mt-5">
 
 			<div class="col-md-2">
@@ -62,7 +75,7 @@
 				<c:if test="${page=='add' }">
 
 					<h1 class="text-center">Add TODO</h1>
-					
+
 					<br>
 
 					<form:form action="saveTodo" method="post" modelAttribute="todo">
@@ -80,13 +93,13 @@
 						<div class="form-group">
 
 							<form:textarea path="todoContent" cssClass="form-control"
-								placeholder="Enter your todo Content" cssStyle="height:300px"/>
+								placeholder="Enter your todo Content" cssStyle="height:300px" />
 
 						</div>
-						
+
 						<div class="container text-center">
-						<button class="btn btn-outline-success">Add Todo</button>
-						
+							<button class="btn btn-outline-success">Add Todo</button>
+
 						</div>
 
 
