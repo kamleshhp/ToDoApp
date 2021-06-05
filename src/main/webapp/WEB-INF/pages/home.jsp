@@ -53,8 +53,8 @@
 
 
 					<a href='<c:url value='/add'></c:url>'
-						class="list-group-item list-group-item-action">Add TODO</a> <a
-						href='<c:url value='/home'></c:url>'
+						class="list-group-item list-group-item-action">Add TODO</a> 
+					<a href='<c:url value='/home'></c:url>'
 						class="list-group-item list-group-item-action">View TODO</a> <a
 						href='<c:url value='/delete'></c:url>'
 						class="list-group-item list-group-item-action">Delete TODO</a> <a
@@ -65,12 +65,33 @@
 			</div>
 
 			<div class="col-md-10">
-				<c:if test="${page=='home' }">
+				 <c:if test="${page=='home' }">
 
 					<h1 class="text-center">All TODOS</h1>
+					
+					<c:forEach items="${todos }" var="t">
+					
+					<div class="card">
+					
+					<div class="card-body">
+					
+					
+					
+					<h3>${t.todoTitle }</h3>
+					<p>${t.todoContent }</p>
+					
+					</div>
+					
+					
+					</div>
+					
+					
+					
+					
+					</c:forEach>
 
 
-				</c:if>
+				</c:if> 
 
 				<c:if test="${page=='add' }">
 

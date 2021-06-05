@@ -29,13 +29,16 @@ public class Homectrl {
 		
 		
 		
-		List<Todo> list=(List<Todo>)m.addAttribute("page",str);
+		List<Todo> list=(List<Todo>)context.getAttribute("list");
+		
+		m.addAttribute("page","home");
 		
 		m.addAttribute("todos",list);
 		
 		
 		
-		context.getAttribute("list");
+		
+		//context.getAttribute("list");
 		
 		return "home";
 	}
