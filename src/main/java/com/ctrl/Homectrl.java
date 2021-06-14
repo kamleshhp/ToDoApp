@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.dao.TodoDao;
 import com.entities.Todo;
 
 
@@ -22,6 +23,9 @@ public class Homectrl {
 	@Autowired
 	private ServletContext context;
 	
+	@Autowired
+	TodoDao todoDao;
+	
 	@GetMapping("/home")
 	public String home(Model m) {
 		
@@ -29,7 +33,7 @@ public class Homectrl {
 		
 		
 		
-		List<Todo> list=(List<Todo>)context.getAttribute("list");
+		List<Todo> list=this.todoDao.getAll();
 		
 		m.addAttribute("page","home");
 		
@@ -62,19 +66,20 @@ public class Homectrl {
 	@PostMapping("/saveTodo")
 	public String saveTodo(@ModelAttribute("todo") Todo t, Model m) {
 		
+		m.addAttribute("page", "home");
+		
 		
 		System.out.println(t);
 		
-		//getting the todo list from context
 		
-		List<Todo> list = (List<Todo>)context.getAttribute("list");
 		
-		list.add(t);
-		
-		m.addAttribute("msg","Sucessfully added");
-		
+		this.todoDao.save(t);
+				
 		
 		t.setTodoDate(new Date());
+		
+		m.addAttribute("msg","Sucessfully added");
+
 		return "home";
 	}
 	
