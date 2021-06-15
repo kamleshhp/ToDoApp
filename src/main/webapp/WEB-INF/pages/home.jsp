@@ -41,6 +41,24 @@
 
 
 		</c:if>
+		
+		<c:if test="${not empty msg1 }">
+			<div class="alert alert-success">
+
+				<b>${msg1 }</b>
+
+
+			</div>
+
+
+
+		</c:if>
+		
+		
+		
+		
+		
+		
 
 
 		<div class="row mt-5">
@@ -120,6 +138,44 @@
 
 						<div class="container text-center">
 							<button class="btn btn-outline-success">Add Todo</button>
+
+						</div>
+
+
+
+
+
+					</form:form>
+
+
+
+
+
+				</c:if>
+				
+				
+				<c:if test="${page=='delete' }">
+
+					<h1 class="text-center">Delete TODO</h1>
+
+					<br>
+
+					<form:form action="DeleteTodo" method="post" modelAttribute="todo1">
+
+						<div class="form-group">
+
+							<form:input path="todoId" cssClass="form-control"
+								placeholder="Enter Todo Id" />
+
+
+
+
+						</div>
+
+						
+
+						<div class="container text-center">
+							<button class="btn btn-outline-success">Delete Todo</button>
 
 						</div>
 

@@ -57,6 +57,20 @@ public class Todo {
 	public void setTodoDate(Date todoDate) {
 		this.todoDate = todoDate;
 	}
+	
+	
+
+	public int getTodoId() {
+		return todoId;
+	}
+
+
+
+	public void setTodoId(int todoId) {
+		this.todoId = todoId;
+	}
+
+
 
 	@Override
 	public String toString() {
