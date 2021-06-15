@@ -11,8 +11,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dao.TodoDao;
 import com.entities.Todo;
@@ -95,6 +98,38 @@ public class Homectrl {
 		m.addAttribute("msg1", "Sucessfully deleted "+"with Id: "+t.getTodoId());
 
 		return "home";
+	}
+	
+	@GetMapping("/update")
+	public String UpdateTodo(Model m) {
+		
+		Todo t=new Todo();
+		m.addAttribute("todo", t);
+		
+		m.addAttribute("page","update");
+		
+		return "home";
+		
+	}
+	
+	
+	@RequestMapping(value="/UpdateTodo")
+	public String Update(@ModelAttribute("todo") Todo t,Model m) {
+		m.addAttribute("page","update");
+		
+		t.setTodoDate(new Date());
+
+		this.todoDao.UpdateTodo(t, t.getTodoId());
+
+		m.addAttribute("msg2", "Sucessfully Updated "+"with Id: "+t.getTodoId());
+
+		return "home";
+		
+		
+		
+		
+		
+		
 	}
 
 }

@@ -38,6 +38,16 @@ public class TodoDao {
 		this.hibernateTemplate.delete(t);
 	}
 	
+	@Transactional
+	public void UpdateTodo(Todo t,int id) {
+		
+		t.setTodoId(id);
+		
+	    this.hibernateTemplate.update(t);
+		
+		
+	}
+	
 	
 	
 

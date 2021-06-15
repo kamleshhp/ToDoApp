@@ -41,7 +41,7 @@
 
 
 		</c:if>
-		
+
 		<c:if test="${not empty msg1 }">
 			<div class="alert alert-success">
 
@@ -54,11 +54,23 @@
 
 		</c:if>
 		
-		
-		
-		
-		
-		
+		<c:if test="${not empty msg2 }">
+			<div class="alert alert-success">
+
+				<b>${msg2 }</b>
+
+
+			</div>
+
+
+
+		</c:if>
+
+
+
+
+
+
 
 
 		<div class="row mt-5">
@@ -71,8 +83,8 @@
 
 
 					<a href='<c:url value='/add'></c:url>'
-						class="list-group-item list-group-item-action">Add TODO</a> 
-					<a href='<c:url value='/home'></c:url>'
+						class="list-group-item list-group-item-action">Add TODO</a> <a
+						href='<c:url value='/home'></c:url>'
 						class="list-group-item list-group-item-action">View TODO</a> <a
 						href='<c:url value='/delete'></c:url>'
 						class="list-group-item list-group-item-action">Delete TODO</a> <a
@@ -83,33 +95,33 @@
 			</div>
 
 			<div class="col-md-10">
-				 <c:if test="${page=='home' }">
+				<c:if test="${page=='home' }">
 
 					<h1 class="text-center">All TODOS</h1>
-					
+
 					<c:forEach items="${todos }" var="t">
-					
-					<div class="card">
-					
-					<div class="card-body">
-					
-					
-					
-					<h3>${t.todoTitle }</h3>
-					<p>${t.todoContent }</p>
-					
-					</div>
-					
-					
-					</div>
-					
-					
-					
-					
+
+						<div class="card">
+
+							<div class="card-body">
+
+
+
+								<h3>${t.todoTitle }</h3>
+								<p>${t.todoContent }</p>
+
+							</div>
+
+
+						</div>
+
+
+
+
 					</c:forEach>
 
 
-				</c:if> 
+				</c:if>
 
 				<c:if test="${page=='add' }">
 
@@ -152,8 +164,8 @@
 
 
 				</c:if>
-				
-				
+
+
 				<c:if test="${page=='delete' }">
 
 					<h1 class="text-center">Delete TODO</h1>
@@ -172,10 +184,62 @@
 
 						</div>
 
-						
+
 
 						<div class="container text-center">
 							<button class="btn btn-outline-success">Delete Todo</button>
+
+						</div>
+
+
+
+
+
+					</form:form>
+
+
+
+
+
+				</c:if>
+
+				<c:if test="${page=='update' }">
+
+					<h1 class="text-center">Add TODO</h1>
+
+					<br>
+
+					<form:form action="UpdateTodo" method="put" modelAttribute="todo">
+
+						<div class="form-group">
+
+							<form:input path="todoId" cssClass="form-control"
+								placeholder="Enter Todo Id" />
+
+
+
+
+						</div>
+
+						<div class="form-group">
+
+							<form:input path="todoTitle" cssClass="form-control"
+								placeholder="Enter Todo title" />
+
+
+
+
+						</div>
+
+						<div class="form-group">
+
+							<form:textarea path="todoContent" cssClass="form-control"
+								placeholder="Enter your todo Content" cssStyle="height:300px" />
+
+						</div>
+
+						<div class="container text-center">
+							<button class="btn btn-outline-success">Update Todo</button>
 
 						</div>
 
